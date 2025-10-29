@@ -1,21 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alunos</title>
-</head>
-<body>
-    <input type="text" placeholder="Nome: "> <br>
-    <input type="number" placeholder="Idade: "> <br>
-    <input type="number" placeholder="Nota Final: "> <br>
-    <select>
-        <optgroup label="Cursos">
-            <option value="JavaScript"> JavaScript </option>
-            <option value="Pyhton"> Python </option>
-            <option value="Java"> Java </option>
-        </optgroup>
-    </select>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Alunos</title>
+    </head>
+    <body>
+        <fieldset >
+            <legend>Cadastrar aluno</legend>
+            <input id="nome" type="text" placeholder="Nome: " > <br>
+            <input id="idade" type="number" placeholder="Idade: "> <br>
+            <input id="nota_final" type="number" placeholder="Nota Final: "> <br>
+            <select id="curso">
+                <optgroup label="Cursos">
+                    <option value="JavaScript"> JavaScript </option>
+                    <option value="Pyhton"> Python </option>
+                    <option value="Java"> Java </option>
+                </optgroup>
+            </select> <br>
+            <button type="button" id="enviar">Enviar</button>
+        </fieldset>
+
+
+        <table id="tabela">
+            <thead>
+                <legend>ALUNOS CADASTRADOS</legend>
+                <tr>
+                    <th>NOME</th>
+                    <th>IDADE</th>
+                    <th>NOTA FINAL</th>
+                    <th>CURSOS</th>
+                    <th>OPÇÔES</th>
+                </tr>
+            </thead>
+            <tbody id="corpo_tabela">
+                
+            </tbody>
+        </table>
+        
+        <script src="script.js"></script>
+    </body>
 </html>
