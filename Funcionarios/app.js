@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Evento para o botão "Cancelar Edição"
     btnCancelar.addEventListener('click', resetarFormulario);
 
-    // --- Exercício 4: Relatórios (map, filter, reduce) [cite: 35] ---
+    // Exercício 4: Relatórios (map, filter, reduce)
 
     function exibirRelatorio(titulo, dados) {
         areaRelatorio.innerHTML = `<strong>${titulo}:</strong>\n\n`;
@@ -142,16 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Relatório 1: Salários > R$ 5000 (Usando filter [cite: 45])
+    // Relatório 1: Salários > R$ 5000 (Usando filter)
     document.getElementById('btn-relatorio-salario').addEventListener('click', () => {
         const filtrados = funcionarios
             .filter(f => f.getSalario() > 5000)
-            .map(f => f.toString()); // Usa o toString() da classe 
+            .map(f => f.toString());
         
         exibirRelatorio('Funcionários com Salário > R$ 5000', filtrados.length > 0 ? filtrados : 'Nenhum encontrado.');
     });
 
-    // Relatório 2: Média Salarial (Usando reduce [cite: 45])
+    // Relatório 2: Média Salarial (Usando reduce)
     document.getElementById('btn-relatorio-media').addEventListener('click', () => {
         if (funcionarios.length === 0) {
             exibirRelatorio('Média Salarial', 'Nenhum funcionário cadastrado.');
@@ -162,14 +162,14 @@ document.addEventListener('DOMContentLoaded', () => {
         exibirRelatorio('Média Salarial', `R$ ${media.toFixed(2)}`);
     });
 
-    // Relatório 3: Cargos Únicos (Usando map e Set [cite: 45])
+    // Relatório 3: Cargos Únicos (Usando map e Set )
     document.getElementById('btn-relatorio-cargos').addEventListener('click', () => {
         const cargos = funcionarios.map(f => f.getCargo());
-        const cargosUnicos = [...new Set(cargos)]; // Dica do 'new Set()' [cite: 45]
+        const cargosUnicos = [...new Set(cargos)]; 
         exibirRelatorio('Cargos Únicos na Empresa', cargosUnicos.length > 0 ? cargosUnicos : 'Nenhum cargo cadastrado.');
     });
 
-    // Relatório 4: Nomes em Maiúsculo (Usando map [cite: 45])
+    // Relatório 4: Nomes em Maiúsculo (Usando map )
     document.getElementById('btn-relatorio-nomes').addEventListener('click', () => {
         const nomesMaiusculos = funcionarios.map(f => f.getNome().toUpperCase());
         exibirRelatorio('Nomes dos Funcionários (em maiúsculo)', nomesMaiusculos.length > 0 ? nomesMaiusculos : 'Nenhum funcionário cadastrado.');
