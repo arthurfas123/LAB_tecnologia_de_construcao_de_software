@@ -6,6 +6,34 @@ let inputNota_final = document.getElementById("nota_final");
 let optionCurso = document.getElementById("curso");
 let linha = null;
 let dados = null;
+let alunos = [];
+
+class Aluno
+{
+    constructor(nome, idade, nota_final, curso)
+    {
+        this.nome = nome;
+        this.idade = idade;
+        this.nota_final = nota_final;
+        this.curso = curso;
+    }
+
+    isAprovado()
+    {
+        if(this.nota_final >= 7)
+        {
+            return true;
+        }
+        return false;
+    }
+
+    toString()
+    {
+        let aluno = "";
+        aluno += "Nome: " + this.nome + " Idade: " + this.idade + " Nota final: " + this.nota_final + " Curso: " + this.curso;
+        return aluno;
+    }
+}
 
 function excluirAluno(target)
 {
@@ -22,6 +50,25 @@ function editarAluno(target)
     inputNota_final.value = dados[2].textContent;
     optionCurso.value = dados[3].textContent;
     botao.textContent = "Atualizar";
+}
+
+function atualizarTabela()
+{
+    tbody.innerHTML = "";
+    for(let i = 0; i < alunos.length; i++)
+    {
+        const novaLinhaHtml =`
+            <tr>
+                <td>${alunos[i].nome}</td>
+                <td>${alunos[i].idade}</td>
+                <td>${alunos[i].nota_final}</td>
+                <td>${alunos[i].curso}</td>
+                <td><button type="button" class="editar">Editar</button></td>
+                <td><button type="button" class="excluir">Excluir</button></td>
+            </tr>`;
+        
+        tbody.innerHTML += novaLinhaHtml;
+    }
 }
 
 tbody.addEventListener('click', function(evento){
@@ -44,17 +91,8 @@ botao.addEventListener('click', function(){
 
     if(botao.textContent == "Enviar")
     {
-        const novaLinhaHtml =`
-            <tr>
-                <td>${nome}</td>
-                <td>${idade}</td>
-                <td>${nota_final}</td>
-                <td>${curso}</td>
-                <td><button type="button" class="editar">Editar</button></td>
-                <td><button type="button" class="excluir">Excluir</button></td>
-            </tr>`;
-        
-        tbody.innerHTML += novaLinhaHtml;
+        alunos.push(new Aluno(nome, idade, nota_final, curso));
+        atualizarTabela();
     }
     else
     {
