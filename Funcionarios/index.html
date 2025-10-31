@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Funcionários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Sistema de Gestão de Funcionários [cite: 1]</h1>
+
+    <div class="container">
+        <h2>Cadastrar / Alterar Funcionário</h2>
+        <form id="form-funcionario">
+            <input type="hidden" id="edit-id">
+            
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" required> </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" required> </div>
+            <div class="form-group">
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" required> </div>
+            <div class="form-group">
+                <label for="salario">Salário (R$):</label>
+                <input type="number" id="salario" step="0.01" required> </div>
+            
+            <button type="submit" id="btn-submit">Salvar</button>
+            <button type="button" id="btn-cancelar" style="display: none;">Cancelar Edição</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Funcionários Cadastrados</h2>
+        <table id="tabela-funcionarios">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Cargo</th>
+                    <th>Salário</th>
+                    <th>Ações</th> </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="container">
+        <h2>Relatórios (Streams JS) [cite: 36]</h2>
+        <div class="botoes-relatorio">
+            <button id="btn-relatorio-salario">Salários > R$ 5000 [cite: 40]</button>
+            <button id="btn-relatorio-media">Média Salarial [cite: 41]</button>
+            <button id="btn-relatorio-cargos">Cargos Únicos [cite: 42]</button>
+            <button id="btn-relatorio-nomes">Nomes em Maiúsculo [cite: 43]</button>
+        </div>
+        <pre id="area-relatorio"></pre>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

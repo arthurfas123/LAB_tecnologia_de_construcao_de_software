@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  # Define o serviço do servidor web
+  web:
+    # Usa a imagem oficial leve do Nginx
+    image: nginx:alpine
+    container_name: sistema-funcionarios
+    ports:
+      # Expõe a porta 80 do container na porta 8080 da sua máquina
+      - "8080:80"
+    volumes:
+      # Monta o diretório atual (onde estão html/css/js)
+      # dentro do diretório padrão do Nginx
+      - .:/usr/share/nginx/html
