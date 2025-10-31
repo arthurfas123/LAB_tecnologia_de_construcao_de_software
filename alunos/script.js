@@ -38,6 +38,7 @@ class Aluno
 function excluirAluno(target)
 {
     target.closest("tr").remove();
+    console.log("excluiu um aluno");
 }
 
 function editarAluno(target)
@@ -50,6 +51,7 @@ function editarAluno(target)
     inputNota_final.value = dados[2].textContent;
     optionCurso.value = dados[3].textContent;
     botao.textContent = "Atualizar";
+    console.log("Editou um aluno")
 }
 
 function atualizarTabela()
@@ -93,6 +95,7 @@ botao.addEventListener('click', function(){
     {
         alunos.push(new Aluno(nome, idade, nota_final, curso));
         atualizarTabela();
+        console.log("Novo aluno adicionado");
     }
     else
     {
